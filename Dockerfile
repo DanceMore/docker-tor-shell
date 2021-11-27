@@ -18,7 +18,7 @@ RUN echo '@edge http://dl-cdn.alpinelinux.org/alpine/edge/main' >> \
       openssl \
       proxychains-ng \
       s6 \
-      tor@edge && \
+      tor@edge
 
 COPY etc/torrc $TOR_CONF
 COPY etc/proxychains/proxychains.conf $PROXYCHAINS_CONF
