@@ -1,3 +1,6 @@
+Log notice file /var/log/tor/notices.log
+DataDirectory /var/lib/tor
+
 VirtualAddrNetworkIPv4 10.192.0.0/10
 AutomapHostsOnResolve 1
 TransPort 9040 IsolateClientAddr IsolateClientProtocol IsolateDestAddr IsolateDestPort
