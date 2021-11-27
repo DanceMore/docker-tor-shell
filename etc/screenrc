@@ -1,0 +1,1 @@
+hardstatus string '%{rk}[ %{R}%H %{r}][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{r}][%{Y}%l%{r}]%{=b C}[ %m/%d %c:%s ]%{W}'

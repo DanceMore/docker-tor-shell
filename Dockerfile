@@ -51,6 +51,7 @@ RUN apk add --update \
 
 # useful additional tools
 RUN apk add --update git bash zsh screen tmux curl openssl
+COPY etc/screenrc /etc/screenrc
 
 # cleanup
 RUN rm -rf /var/cache/apk/*
