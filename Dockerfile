@@ -1,5 +1,7 @@
 FROM alpine:3.15
 
+# torify the box
+# modified from https://github.com/zuazo/alpine-tor-docker
 ENV PROXYCHAINS_CONF=/etc/proxychains/proxychains.conf \
     TOR_CONF=/etc/tor/torrc \
     TOR_LOG_DIR=/var/log/s6/tor \
@@ -35,18 +37,20 @@ RUN mkdir -p "$TOR_LOG_DIR" "$DNSMASQ_LOG_DIR" && \
       /usr/bin/tor_wait \
       /usr/bin/proxychains_wrapper
 
+# irssi
+# modified from https://github.com/zuazo/irssi-tor-docker/blob/master/Dockerfile#L4-L15
 ENV IRSSI_HOME=/home/irssi
 ENV IRSSI_CONF_DIR=$IRSSI_HOME/.irssi
 ENV IRSSI_SCRIPTS_DIR=$IRSSI_CONF_DIR/scripts
 
 RUN apk add --update \
       irssi && \
-    rm -rf /var/cache/apk/* && \
     adduser -D -h $IRSSI_HOME -s /bin/sh irssi && \
     mkdir -p $IRSSI_CONF_DIR $IRSSI_SCRIPTS_DIR && \
     chown -R irssi:irssi $IRSSI_CONF_DIR $IRSSI_SCRIPTS_DIR
 
-RUN apk add git bash zsh
+# useful additional tools
+RUN apk add --update git bash zsh screen tmux curl openssl
 
 # cleanup
 RUN rm -rf /var/cache/apk/*
