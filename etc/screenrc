@@ -1,1 +1,24 @@
-hardstatus string '%{rk}[ %{R}%H %{r}][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{r}][%{Y}%l%{r}]%{=b C}[ %m/%d %c:%s ]%{W}'
+# from https://wiki.alpinelinux.org/wiki/Screen_terminal_multiplexer#Configuring_.screenrc_.28example.29
+#hardstatus off
+hardstatus alwayslastline '%{= kG}[ %{y}%H%? %1`%?%{g} ][%= %{= kw}%-w%{+b yk} %n*%t%?(%u)%? %{-}%+w %=%{g}][ %{y}%l %{g}][%{W}%c:%s %{g}]'
+msgwait 1
+vbell off
+
+# Huge scrollback buffer
+defscrollback 5000
+
+# No welcome message
+startup_message off
+
+# Clear the screen after closing some programs
+altscreen on
+
+# Get rid of the vertical bars
+rendition so =00
+caption string "%{03} "
+
+# 256 colors
+term screen-256color
+terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+termcapinfo xterm* ti@:te@
+attrcolor b ".I"

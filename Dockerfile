@@ -50,7 +50,7 @@ RUN apk add --update \
     chown -R irssi:irssi $IRSSI_CONF_DIR $IRSSI_SCRIPTS_DIR
 
 # useful additional tools
-RUN apk add --update git bash zsh screen tmux curl openssl
+RUN apk add --update git bash zsh screen tmux curl openssl wget vim
 COPY etc/screenrc /etc/screenrc
 
 # cleanup
