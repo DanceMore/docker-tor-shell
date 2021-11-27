@@ -2,5 +2,5 @@
 
 set -e
 
-s6-svscan /etc/s6 > /dev/null 2>&1 &
+s6-svscan /etc/s6 2>&1 &
 tor_wait
